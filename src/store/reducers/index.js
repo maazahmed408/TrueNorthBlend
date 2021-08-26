@@ -1,22 +1,16 @@
 import { combineReducers } from "redux";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
-import authReducer from "./auth";
-import blogsReducer from "./blogs";
-import productsReducer from "./products";
-import videosReducer from "./videos";
+import toggleNavReducer from "./toggleNav";
 
 const persistConfig = {
-  key: "root",
-  storage,
+	key: "root",
+	storage,
 };
 
 const rootReducer = () =>
-  combineReducers({
-    auth: authReducer,
-    blogs: blogsReducer,
-    videos: videosReducer,
-    products: productsReducer,
-  });
+	combineReducers({
+		toggleNav: toggleNavReducer,
+	});
 
 export default persistReducer(persistConfig, rootReducer());
